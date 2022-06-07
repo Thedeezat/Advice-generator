@@ -33,7 +33,6 @@ const Advice = () => {
     <div className="advice_wrapper--inner">
 
       <p className="advice_counter"> {adviceId} </p>
-
       <q className="advice_text"> {advice} </q>
 
       <div className="pattern_divider">
@@ -42,7 +41,7 @@ const Advice = () => {
       </div>
 
       <div className="dice_wrapper" onClick={() => { setAdvice(update); setAdviceId(`Advice #${id}`) }}>
-        <img src={dice} alt="" />
+        <img src={dice} alt="dice" />
       </div>
     </div>
   );
