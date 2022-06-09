@@ -31,7 +31,7 @@ const Advice = () => {
 
   return (
     <section className="advice_wrapper--inner">
-      <h2 className="advice_counter"> {adviceId} </h2>
+      <h1 className="advice_counter"> {adviceId} </h1>
       <q className="advice_text"> {advice} </q>
 
       <figure className="pattern_divider">
