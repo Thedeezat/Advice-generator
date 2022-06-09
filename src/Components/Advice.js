@@ -30,20 +30,19 @@ const Advice = () => {
   })
 
   return (
-    <div className="advice_wrapper--inner">
-
+    <section className="advice_wrapper--inner">
       <p className="advice_counter"> {adviceId} </p>
       <q className="advice_text"> {advice} </q>
 
-      <div className="pattern_divider">
+      <figure className="pattern_divider">
         <img src={divider} className="desktop_divider" alt="" />
         <img src={mobileDice} className="mobile_divider" alt="" />
-      </div>
+      </figure>
 
-      <div className="dice_wrapper" onClick={() => { setAdvice(update); setAdviceId(`Advice #${id}`) }}>
-        <img src={dice} alt="dice" />
-      </div>
-    </div>
+      <figure className="dice_wrapper" onClick={() => { setAdvice(update); setAdviceId(`Advice #${id}`) }}>
+        <img src={dice} alt="" />
+      </figure>
+    </section>
   );
 }
 

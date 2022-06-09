@@ -2,13 +2,13 @@ import Advice from './Components/Advice'
 
 function App() {
   return (
-    <div className="App">
-      <div className="container">
+    <main className="App">
+      <section className="container">
         <div className="advice_wrapper">
           <Advice />
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
