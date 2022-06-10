@@ -1,9 +1,3 @@
-// this function takes a promise then returns the status, for example, success, pending, error
-// The point of this is to inform the component whether or not the data is done fetching
-// If the data is pending we can have loading text showing until the data fetches
-// if the data has finished fetching we can go ahead and render the Advice component, the
-// component will not throw an error because it will only render if it currently had an advice slip to show
-
 const suspend = (promise) => {
   let result;
   let status = "pending";
