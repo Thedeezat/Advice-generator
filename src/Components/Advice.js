@@ -18,7 +18,7 @@ const Advice = ({ adviceId, adviceContent, onChangeAdvice }) => {
           <img src={dice} alt="dice" />
         </div>
       </div>
-    </section >
+    </section>
   );
 };
 
