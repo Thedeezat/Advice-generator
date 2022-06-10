@@ -14,18 +14,19 @@ const Advice = () => {
   const [update, updateAdvice] = useState("")
   const [id, updateID] = useState("")
 
-  const fetchItems = async () => {
-    try {
-      const response = await fetch(Api_url)
-      const randomSlip = await response.json();
-      updateAdvice(randomSlip.slip.advice);
-      updateID(randomSlip.slip.id)
-    } catch (err) {
-      console.log(err.stack)
-    }
-  }
 
   useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch(Api_url)
+        const randomSlip = await response.json();
+        updateAdvice(randomSlip.slip.advice);
+        updateID(randomSlip.slip.id)
+      } catch (err) {
+        console.log(err.stack)
+      }
+    }
+
     (async () => await fetchItems())()
   })
 
