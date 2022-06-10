@@ -13,19 +13,31 @@ import mobileDice from "../images/pattern-divider-mobile.svg";
 
 const Advice = ({ adviceId, adviceContent, onChangeAdvice }) => {
   return (
+
     <div className="advice_wrapper--inner">
       <p className="advice_counter"> {`ADVICE #${adviceId}`} </p>
       <q className="advice_text"> {adviceContent} </q>
 
-      <div className="pattern_divider">
+//     <section className="advice_wrapper--inner">
+//       <h1 className="advice_counter"> {adviceId} </h1>
+//       <q className="advice_text"> {advice} </q>
+
+
+      <figure className="pattern_divider">
         <img src={divider} className="desktop_divider" alt="" />
         <img src={mobileDice} className="mobile_divider" alt="" />
-      </div>
+      </figure>
+
 
       <div className="dice_wrapper" onClick={onChangeAdvice}>
         <img src={dice} alt="dice" />
       </div>
     </div>
+//       <figure className="dice_wrapper" onClick={() => { setAdvice(update); setAdviceId(`Advice #${id}`) }}>
+//         <img src={dice} alt="" />
+//       </figure>
+    </section>
+
   );
 };
 

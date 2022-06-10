@@ -22,7 +22,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <main className="App">
       <div className="container">
         <div className="advice_wrapper">
           <Suspense fallback={<p className="loading">Loading</p>}>
@@ -34,7 +34,7 @@ function App() {
           </Suspense>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 
