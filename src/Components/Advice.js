@@ -1,49 +1,44 @@
-import divider from '../images/pattern-divider-desktop.svg'
-import dice from '../images/icon-dice.svg'
-import mobileDice from '../images/pattern-divider-mobile.svg'
-import { useState, useEffect } from "react"
+import divider from "../images/pattern-divider-desktop.svg";
+import dice from "../images/icon-dice.svg";
+import mobileDice from "../images/pattern-divider-mobile.svg";
 
-const Advice = () => {
-  const Api_url = 'https://api.adviceslip.com/advice';
+// you will notice there is not any logic or event handlers here
+// the parent tells this component what to render
+// this component does not need to know anything except what to render
+// this is an example of a controlled component, it is easier to maintain components like this
+// keep your logic in one place, this component is also more reusable
+// because there isn't any logic we can use it in other apps, it only needs adviceId, adviceContent, onChangeAdvice event
+// it does not care how you get these props it just needs the raw data
+// it also does not have any state, the parent can control that
 
-  const [adviceId, setAdviceId] = useState("ADVICE #117")
-  const [advice, setAdvice] = useState(
-    `It is easy to sit up and take notice,
-    what's difficult is getting up and taking action.`);
-
-  const [update, updateAdvice] = useState("")
-  const [id, updateID] = useState("")
-
-  const fetchItems = async () => {
-    try {
-      const response = await fetch(Api_url)
-      const randomSlip = await response.json();
-      updateAdvice(randomSlip.slip.advice);
-      updateID(randomSlip.slip.id)
-    } catch (err) {
-      console.log(err.stack)
-    }
-  }
-
-  useEffect(() => {
-    (async () => await fetchItems())()
-  })
-
+const Advice = ({ adviceId, adviceContent, onChangeAdvice }) => {
   return (
-    <section className="advice_wrapper--inner">
-      <h1 className="advice_counter"> {adviceId} </h1>
-      <q className="advice_text"> {advice} </q>
+
+    <div className="advice_wrapper--inner">
+      <p className="advice_counter"> {`ADVICE #${adviceId}`} </p>
+      <q className="advice_text"> {adviceContent} </q>
+
+//     <section className="advice_wrapper--inner">
+//       <h1 className="advice_counter"> {adviceId} </h1>
+//       <q className="advice_text"> {advice} </q>
+
 
       <figure className="pattern_divider">
         <img src={divider} className="desktop_divider" alt="" />
         <img src={mobileDice} className="mobile_divider" alt="" />
       </figure>
 
-      <figure className="dice_wrapper" onClick={() => { setAdvice(update); setAdviceId(`Advice #${id}`) }}>
-        <img src={dice} alt="" />
-      </figure>
+
+      <div className="dice_wrapper" onClick={onChangeAdvice}>
+        <img src={dice} alt="dice" />
+      </div>
+    </div>
+//       <figure className="dice_wrapper" onClick={() => { setAdvice(update); setAdviceId(`Advice #${id}`) }}>
+//         <img src={dice} alt="" />
+//       </figure>
     </section>
+
   );
-}
+};
 
 export default Advice;
